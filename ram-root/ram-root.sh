@@ -407,8 +407,9 @@ do_post_pivot_root() {
     ${VERBOSE} && zram-status ${ZRAM_ID}
   fi
 
-  do_rm ${NEW_ROOT} ${NEW_OVERLAY} /ram-root /rom /tmp/available.packages /tmp/ram-root.failsafe
+  do_rm ${NEW_ROOT} ${NEW_OVERLAY} /ram-root /rom /tmp/available.packages /tmp/ram-root.failsafe /usr/sbin
   do_mklink ${OLD_ROOT}/ram-root /
+  do_mklink ${OLD_ROOT}/usr/sbin /usr/sbin
 
   local index=0
   local uci_response
